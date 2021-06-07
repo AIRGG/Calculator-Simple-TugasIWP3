@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Kalkultor Sederhanas</title>
+	<style>
+		.copyright{
+			position: absolute;
+			bottom: 2%;
+		}
+	</style>
+</head>
+<body>
+	<h1>Kalkulator</h1>
+	<label for="">Angka1</label>
+	<input type="text" id="angka1" autofocus=""><br>
+	<label for="">Angka2</label>
+	<input type="text" id="angka2"><br><br>
+	<button onclick="kalkulasi('x')">X</button>
+	<button onclick="kalkulasi('/')">/</button>
+	<button onclick="kalkulasi('+')">+</button>
+	<button onclick="kalkulasi('-')">-</button>
+	<br><br>
+	<h4><span id="txtangka1"></span> <span id="txtoperator"></span> <span id="txtangka2"></span> </h4>
+	<h3>HASIL: <span id="hasil">-</span></h3>
+
+	<p class="copyright">&copy; Copyright <a href="https://github.com/AIRGG" target="_blank">AIRGG</a>. All Right Reserved 2021.</p>
+
+	<script>
+		let angka1 = document.querySelector("#angka1")
+		let angka2 = document.querySelector("#angka2")
+		let hasil = document.querySelector("#hasil")
+		let txtangka1 = document.querySelector("#txtangka1")
+		let txtangka2 = document.querySelector("#txtangka2")
+		let txtoperator = document.querySelector("#txtoperator")
+
+		const kalkulasi = opr => {
+			let out = 0
+			switch(opr) {
+				case "x":
+					out = parseInt(angka1.value) * parseInt(angka2.value)
+					break;
+				case "/":
+					out = parseInt(angka1.value) / parseInt(angka2.value)
+					break;
+				case "+":
+					out = parseInt(angka1.value) + parseInt(angka2.value)
+					break;
+				case "-":
+					out = parseInt(angka1.value) - parseInt(angka2.value)
+					break;
+				default:
+					alert('NOT FOUND')
+			}
+
+			txtangka1.innerHTML = angka1.value
+			txtangka2.innerHTML = angka2.value
+			txtoperator.innerHTML = opr
+			hasil.innerHTML = out || 0
+		}
+	</script>
+</body>
+</html>
